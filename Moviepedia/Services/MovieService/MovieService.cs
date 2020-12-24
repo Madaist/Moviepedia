@@ -4,6 +4,9 @@ using Moviepedia.Repositories.MovieInfoRepository;
 using Moviepedia.Repositories.MovieRepository;
 using Moviepedia.Repositories.ReviewRepository;
 using Moviepedia.Services.ActorService;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Moviepedia.Services.MovieService
 {
@@ -21,20 +24,27 @@ namespace Moviepedia.Services.MovieService
             _movieInfoRepository = movieInfoRepository;
             _actorService = actorService;
         }
-        public MovieDTO GetMovieInfo(string movieId)
+        public MovieDTO GetMovie(string movieId)
         {
             Movie movie = _movieRepository.FindById(movieId);
-            MovieDTO movieDTO = new MovieDTO
+            if (movie != null)
             {
-                Id = movie.Id,
-                Title = movie.Title,
-                Picture = movie.Picture,
-                Reviews = _reviewRepository.FindByMovieId(movieId),
-                MovieInfo = GetMovieInfoDTO(movieId),
-                Actors = _actorService.GetActorsByMovie(movieId)
-            };
+                MovieDTO movieDTO = new MovieDTO
+                {
+                    Id = movie.Id,
+                    Title = movie.Title,
+                    Picture = movie.Picture,
+                    Reviews = _reviewRepository.FindByMovieId(movieId),
+                    MovieInfo = GetMovieInfoDTO(movieId),
+                    Actors = _actorService.GetActorsByMovie(movieId)
+                };
 
-            return movieDTO;
+                return movieDTO;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public MovieInfoDTO GetMovieInfoDTO(string movieId)
@@ -50,6 +60,18 @@ namespace Moviepedia.Services.MovieService
                 StoryLine = movieInfo.StoryLine
             };
             return movieInfoDTO;
+        }
+
+        public ICollection<MovieDTO> GetAll()
+        {
+            IEnumerable<string> movieIds = _movieRepository.GetAll().Select(x => x.Id);
+            ICollection<MovieDTO> moviesDTO = new List<MovieDTO>();
+            foreach (string movieId in movieIds)
+            {
+                MovieDTO movieDTO = GetMovie(movieId);
+                moviesDTO.Add(movieDTO);
+            }
+            return moviesDTO;
         }
     }
 }

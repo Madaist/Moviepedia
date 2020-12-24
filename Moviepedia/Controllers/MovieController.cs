@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Moviepedia.Repositories.MovieRepository;
+﻿using Microsoft.AspNetCore.Mvc;
 using Moviepedia.Services.MovieService;
 
 namespace Moviepedia.Controllers
@@ -23,7 +17,21 @@ namespace Moviepedia.Controllers
         [HttpGet]
         public IActionResult GetAllMovies()
         {
-            return Ok(_movieService.GetMovieInfo("1"));
+            return Ok(_movieService.GetAll());
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetMovie(string id)
+        {
+            var movie = _movieService.GetMovie(id);
+            if (movie != null)
+            {
+                return Ok(movie);
+            }
+            else
+            {
+                return NotFound(new { message = "Movie not found" });
+            }
         }
     }
 }

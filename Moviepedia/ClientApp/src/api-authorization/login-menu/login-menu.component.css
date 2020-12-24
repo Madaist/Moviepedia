@@ -1,0 +1,11 @@
+#login-button:hover, #register-button:hover, #logout-button:hover, #my-account:hover {
+  color: red;
+  background-color: #eee;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#login-button, #register-button, #logout-button, #my-account {
+  background-color: #f44336;
+  color: white;
+  margin-right: 2vw;
+}

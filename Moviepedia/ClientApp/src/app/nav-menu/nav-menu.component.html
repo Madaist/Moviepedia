@@ -1,9 +1,9 @@
 <header>
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-danger border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">Moviepedia</a>
+      <a class="navbar-brand" [routerLink]="['/']" style="color: white">Moviepedia</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,7 +20,7 @@
         [ngClass]="{ show: isExpanded }"
       >
         <app-login-menu></app-login-menu>
-        <ul class="navbar-nav flex-grow">
+        <!--<ul class="navbar-nav flex-grow">
           <li
             class="nav-item"
             [routerLinkActive]="['link-active']"
@@ -38,7 +38,7 @@
               >Fetch data</a
             >
           </li>
-        </ul>
+        </ul>-->
       </div>
     </div>
   </nav>
