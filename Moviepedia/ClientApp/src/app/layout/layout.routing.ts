@@ -8,9 +8,10 @@ import { ActorsComponent } from '../actors/actors.component';
 export const LayoutRoutes: Routes = [
   {
     path: 'home', component: LayoutComponent, canActivate: [AuthorizeGuard], children: [
-        {path: '', redirectTo: 'movies', pathMatch: 'full'},
-        { path: 'movies', component: MoviesComponent },
-        { path: 'my-profile', component: MyProfileComponent },
-        { path: 'actors', component: ActorsComponent },
-    ]}
+      { path: '', redirectTo: '/movies', pathMatch: 'full' },
+      { path: '/movies', component: MoviesComponent },
+      { path: 'my-profile', component: MyProfileComponent },
+      { path: 'actors', component: ActorsComponent },
+    ]
+  }
 ];

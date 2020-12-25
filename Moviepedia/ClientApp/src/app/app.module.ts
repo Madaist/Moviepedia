@@ -12,6 +12,8 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component';
+import { ComponentsModule } from './components/components.module';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { LayoutComponent } from './layout/layout.component';
     HttpClientModule,
     FormsModule,
     ApiAuthorizationModule,
+    LayoutModule,
     RouterModule.forRoot([
       { path: 'login', component: HomeComponent },
       { path: 'home', component: LayoutComponent, canActivate: [AuthorizeGuard] },
       { path: '', component: HomeComponent },
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ComponentsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
