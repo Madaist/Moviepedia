@@ -1,0 +1,12 @@
+#story {
+  width: 50vw;
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+#carousel{
+    position: relative;
+    top: 10vh;
+}
