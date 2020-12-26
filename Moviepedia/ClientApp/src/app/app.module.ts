@@ -14,6 +14,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { ComponentsModule } from './components/components.module';
 import { LayoutModule } from './layout/layout.module';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     ]),
     BrowserAnimationsModule,
     ComponentsModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    AngularFontAwesomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
