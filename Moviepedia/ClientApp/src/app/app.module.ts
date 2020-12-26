@@ -15,13 +15,14 @@ import { ComponentsModule } from './components/components.module';
 import { LayoutModule } from './layout/layout.module';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { SearchPipe } from './shared/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -4,7 +4,6 @@ using Moviepedia.Repositories.MovieInfoRepository;
 using Moviepedia.Repositories.MovieRepository;
 using Moviepedia.Repositories.ReviewRepository;
 using Moviepedia.Services.ActorService;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -29,13 +28,17 @@ namespace Moviepedia.Services.MovieService
             Movie movie = _movieRepository.FindById(movieId);
             if (movie != null)
             {
+                MovieInfo movieInfo = _movieInfoRepository.FindById(movie.MovieInfoId);
                 MovieDTO movieDTO = new MovieDTO
                 {
                     Id = movie.Id,
                     Title = movie.Title,
                     Picture = movie.Picture,
+                    BoxOffice = movieInfo.BoxOffice,
+                    Category = movieInfo.Category,
+                    ReleaseYear = movieInfo.ReleaseYear,
+                    StoryLine = movieInfo.StoryLine,
                     Reviews = _reviewRepository.FindByMovieId(movieId),
-                    MovieInfo = GetMovieInfoDTO(movieId),
                     Actors = _actorService.GetActorsByMovie(movieId)
                 };
 
@@ -47,20 +50,20 @@ namespace Moviepedia.Services.MovieService
             }
         }
 
-        public MovieInfoDTO GetMovieInfoDTO(string movieId)
-        {
-            Movie movie = _movieRepository.FindById(movieId);
-            var movieInfo = _movieInfoRepository.FindById(movie.MovieInfoId);
-            MovieInfoDTO movieInfoDTO = new MovieInfoDTO
-            {
-                Id = movieInfo.Id,
-                BoxOffice = movieInfo.BoxOffice,
-                Category = movieInfo.Category,
-                ReleaseYear = movieInfo.ReleaseYear,
-                StoryLine = movieInfo.StoryLine
-            };
-            return movieInfoDTO;
-        }
+        //public MovieInfoDTO GetMovieInfoDTO(string movieId)
+        //{
+        //    Movie movie = _movieRepository.FindById(movieId);
+        //    var movieInfo = _movieInfoRepository.FindById(movie.MovieInfoId);
+        //    MovieInfoDTO movieInfoDTO = new MovieInfoDTO
+        //    {
+        //        Id = movieInfo.Id,
+        //        BoxOffice = movieInfo.BoxOffice,
+        //        Category = movieInfo.Category,
+        //        ReleaseYear = movieInfo.ReleaseYear,
+        //        StoryLine = movieInfo.StoryLine
+        //    };
+        //    return movieInfoDTO;
+        //}
 
         public ICollection<MovieDTO> GetAll()
         {

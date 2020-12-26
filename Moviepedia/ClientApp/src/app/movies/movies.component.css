@@ -1,0 +1,41 @@
+.detail {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+#p1 {
+  padding-left: 20px;
+  text-align: center;
+  font-weight: 300;
+  padding-top: 5px;
+  margin-bottom: 0;
+  overflow: hidden;
+  color: #a366ff;
+}
+
+
+#container-content {
+  text-align: center;
+}
+
+form {
+  margin: auto;
+  padding-bottom: 30px;
+}
+
+.add {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 22px;
+  color: black;
+}
+
+img {
+  width: 100%;
+  height: 50vh;
+}
+
+.view .mask {
+  height: 88%;
+}

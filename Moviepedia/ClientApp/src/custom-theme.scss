@@ -12,11 +12,11 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$Moviepedia-primary: mat-palette($mat-indigo);
-$Moviepedia-accent: mat-palette($mat-pink, A200, A100, A400);
+$Moviepedia-primary: mat-palette($mat-purple);
+$Moviepedia-accent: mat-palette($mat-purple, 300, 200, A400);
 
 // The warn palette is optional (defaults to red).
-$Moviepedia-warn: mat-palette($mat-red);
+$Moviepedia-warn: mat-palette($mat-purple);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $Moviepedia-theme: mat-light-theme($Moviepedia-primary, $Moviepedia-accent, $Moviepedia-warn);

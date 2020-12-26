@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Moviepedia.DTOs
+﻿namespace Moviepedia.DTOs
 {
     public class MovieInfoDTO
     {
