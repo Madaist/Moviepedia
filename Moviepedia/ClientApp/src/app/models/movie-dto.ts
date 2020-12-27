@@ -11,6 +11,5 @@ export class MovieDTO {
   category: string;
   boxOffice: string;
   reviews: Review[];
-  movieInfo: MovieInfoDTO;
   actors: ActorDTO[];
 }

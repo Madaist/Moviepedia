@@ -4,6 +4,7 @@ import { AuthorizeGuard } from '../../api-authorization/authorize.guard';
 import { MoviesComponent } from '../movies/movies.component';
 import { MyProfileComponent } from '../my-profile/my-profile.component';
 import { ActorsComponent } from '../actors/actors.component';
+import { SpecificMovieComponent } from '../specific-movie/specific-movie.component';
 
 export const LayoutRoutes: Routes = [
   {
@@ -12,6 +13,7 @@ export const LayoutRoutes: Routes = [
       { path: 'movies', component: MoviesComponent },
       { path: 'my-profile', component: MyProfileComponent },
       { path: 'actors', component: ActorsComponent },
+      { path: 'title/:movieId', component: SpecificMovieComponent },
     ]
   }
 ];

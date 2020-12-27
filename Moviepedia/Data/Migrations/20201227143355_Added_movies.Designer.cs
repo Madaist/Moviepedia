@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Moviepedia.Data;
 
 namespace Moviepedia.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201227143355_Added_movies")]
+    partial class Added_movies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -272,7 +274,7 @@ namespace Moviepedia.Data.Migrations
                             Age = 45,
                             FirstName = "Kate",
                             LastName = "Winslet",
-                            Picture = "https://i.ibb.co/BVsDhT9/1200px-Kate-Winslet-at-the-2017-Toronto-International-Film-Festival-cropped.jpg"
+                            Picture = "https://i.ibb.co/71CCNdp/Kate-Winslet-arriving-for-the-Titanic-3-D-premiere-at-the-Royal-Albert-Hall-Kensington-London-27-03.jpg"
                         },
                         new
                         {
@@ -321,22 +323,6 @@ namespace Moviepedia.Data.Migrations
                             FirstName = "Zoe",
                             LastName = "Saldana",
                             Picture = "https://i.ibb.co/CzfVnff/Zoe-Saldana.jpg"
-                        },
-                        new
-                        {
-                            Id = "9",
-                            Age = 80,
-                            FirstName = "Al",
-                            LastName = "Pacino",
-                            Picture = "https://i.ibb.co/SNGpVN2/330px-Al-Pacino.jpg"
-                        },
-                        new
-                        {
-                            Id = "10",
-                            Age = 80,
-                            FirstName = "Marlon",
-                            LastName = "Brando",
-                            Picture = "https://i.ibb.co/S0tQS7z/330px-Marlon-Brando-by-Edward-Cronenweth-1955.jpg"
                         });
                 });
 
@@ -468,13 +454,6 @@ namespace Moviepedia.Data.Migrations
                             MovieInfoId = "5",
                             Picture = "https://i.ibb.co/LkXWRyr/avatar.jpg",
                             Title = "Avatar"
-                        },
-                        new
-                        {
-                            Id = "6",
-                            MovieInfoId = "6",
-                            Picture = "https://i.ibb.co/cv7Ht6Y/The-Godfather-The-Game.jpg",
-                            Title = "The Godfather"
                         });
                 });
 
@@ -551,18 +530,6 @@ namespace Moviepedia.Data.Migrations
                             Id = "9",
                             ActorId = "8",
                             MovieId = "5"
-                        },
-                        new
-                        {
-                            Id = "10",
-                            ActorId = "9",
-                            MovieId = "6"
-                        },
-                        new
-                        {
-                            Id = "11",
-                            ActorId = "10",
-                            MovieId = "6"
                         });
                 });
 
@@ -627,14 +594,6 @@ namespace Moviepedia.Data.Migrations
                             Category = "Epic Science Fiction",
                             ReleaseYear = 2009,
                             StoryLine = "When his brother is killed in a robbery, paraplegic Marine Jake Sully decides to take his place in a mission on the distant world of Pandora. There he learns of greedy corporate figurehead Parker Selfridge's intentions of driving off the native humanoid 'Na'vi' in order to mine for the precious material scattered throughout their rich woodland. In exchange for the spinal surgery that will fix his legs, Jake gathers knowledge, of the Indigenous Race and their Culture, for the cooperating military unit spearheaded by gung-ho Colonel Quaritch, while simultaneously attempting to infiltrate the Na'vi people with the use of an 'avatar' identity. While Jake begins to bond with the native tribe and quickly falls in love with the beautiful alien Neytiri, the restless Colonel moves forward with his ruthless extermination tactics, forcing the soldier to take a stand - and fight back in an epic battle for the fate of Pandora."
-                        },
-                        new
-                        {
-                            Id = "6",
-                            BoxOffice = "$246–287 million",
-                            Category = "Crime",
-                            ReleaseYear = 1972,
-                            StoryLine = "The Godfather 'Don' Vito Corleone is the head of the Corleone mafia family in New York. He is at the event of his daughter's wedding. Michael, Vito's youngest son and a decorated WW II Marine is also present at the wedding. Michael seems to be uninterested in being a part of the family business. Vito is a powerful man, and is kind to all those who give him respect but is ruthless against those who do not. But when a powerful and treacherous rival wants to sell drugs and needs the Don's influence for the same, Vito refuses to do it. What follows is a clash between Vito's fading old values and the new ways which may cause Michael to do the thing he was most reluctant in doing and wage a mob war against all the other mafia families which could tear the Corleone family apart."
                         });
                 });
 

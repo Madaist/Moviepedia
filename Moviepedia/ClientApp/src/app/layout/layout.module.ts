@@ -14,13 +14,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { SearchPipe } from '../shared/search.pipe';
+import { SpecificMovieComponent } from '../specific-movie/specific-movie.component';
 
 @NgModule({
   declarations: [
     MoviesComponent,
     ActorsComponent,
     MyProfileComponent,
-    SearchPipe
+    SearchPipe,
+    SpecificMovieComponent
   ],
   imports: [
     CommonModule,

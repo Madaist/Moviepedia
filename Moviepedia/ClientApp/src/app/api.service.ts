@@ -17,5 +17,9 @@ export class ApiService {
     return this.http.get(this.baseUrl + '/Movie', { headers: this.header });
   }
 
+  getMovie(movieId : string) {
+    return this.http.get(this.baseUrl + '/Movie/' + movieId, {headers: this.header});
+  }
+
  
 }

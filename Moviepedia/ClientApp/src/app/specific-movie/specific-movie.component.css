@@ -1,0 +1,8 @@
+#edit-button:hover, #delete-button:hover {
+  background-color: #eee;
+  color: #b380ff;
+}
+
+#edit-button, #delete-button {
+  background-color: #b380ff;
+}
