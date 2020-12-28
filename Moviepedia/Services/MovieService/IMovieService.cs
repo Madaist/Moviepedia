@@ -8,5 +8,6 @@ namespace Moviepedia.Services.MovieService
         public MovieDTO GetMovie(string movieId);
         public ICollection<MovieDTO> GetAll();
         public bool Delete(string movieId);
+        public bool Update(UpdateMovieDTO movieDTO);
     }
 }

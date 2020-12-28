@@ -1,0 +1,18 @@
+<div bsModal class=" row modal fade" #editMovieModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="editMovieModal"
+     aria-hidden="true" (onHide)="this.editMovieForm.reset();">
+  <div class="col-md-6 col-sm-6 col-lg-4 mx-auto my-4" *ngIf="editMovieForm">
+
+    <form class="text-center border border-light p-5" [formGroup]="editMovieForm">
+      <p class="h4 mb-4">Edit movie</p>
+      <input type="text" class="form-control mb-4" formControlName="title" value={{movie.title}} autocomplete="off"/>
+      <input type="text" class="form-control mb-4" formControlName="picture" value={{movie.picture}} autocomplete="off"/>
+      <textarea type="text" class="form-control mb-4" formControlName="storyLine" value={{movie.storyLine}} autocomplete="off"></textarea>
+      <input type="number" class="form-control mb-4" formControlName="releaseYear" value={{movie.releaseYear}} autocomplete="off"/>
+      <input type="text" class="form-control mb-4" formControlName="category" value={{movie.category}} autocomplete="off"/>
+      <input type="text" class="form-control mb-4" formControlName="boxOffice" value={{movie.boxOffice}} autocomplete="off"/>
+      <button class="btn btn-outline-light" id="edit-movie" block=true [disabled]="editMovieForm.invalid || editMovieForm.pristine" (click)="editMovie()">Edit</button>
+    </form>
+
+  </div>
+</div>
+

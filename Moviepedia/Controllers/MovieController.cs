@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Moviepedia.DTOs;
 using Moviepedia.Services.MovieService;
 
 namespace Moviepedia.Controllers
@@ -8,7 +9,6 @@ namespace Moviepedia.Controllers
     public class MovieController : ControllerBase
     {
         private readonly IMovieService _movieService;
-
         public MovieController(IMovieService movieService)
         {
             _movieService = movieService;
@@ -28,10 +28,7 @@ namespace Moviepedia.Controllers
             {
                 return Ok(movie);
             }
-            else
-            {
-                return NotFound(new { message = "Movie not found" });
-            }
+            return NotFound(new { message = "Movie not found" });
         }
 
         [HttpDelete("{id}")]
@@ -42,10 +39,17 @@ namespace Moviepedia.Controllers
             {
                 return Ok(new { message = "Movie deleted successfully" });
             }
-            else
+            return BadRequest(new { message = "Movie not found" });
+        }
+
+        [HttpPut]
+        public IActionResult UpdateMovie(UpdateMovieDTO movieDTO)
+        {
+            if (_movieService.Update(movieDTO))
             {
-                return BadRequest(new { message = "Movie not found" });
+                return Ok();
             }
+            return NotFound(new { message = "Movie not found" });
         }
     }
 }

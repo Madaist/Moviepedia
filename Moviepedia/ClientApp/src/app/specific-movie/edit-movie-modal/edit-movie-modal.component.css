@@ -1,0 +1,13 @@
+form {
+  background-color: white;
+  border-radius: 10px;
+}
+
+#edit-movie:hover {
+  background-color: #eee;
+  color: #b380ff;
+}
+
+#edit-movie {
+  background-color: #b380ff;
+}

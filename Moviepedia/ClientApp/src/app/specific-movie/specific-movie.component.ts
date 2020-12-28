@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { MovieService } from '../shared/services/movie.service';
 import { MovieDTO } from '../shared/models/movie-dto';
 import { AddReviewModalComponent } from './add-review-modal/add-review-modal.component';
+import { EditMovieModalComponent } from './edit-movie-modal/edit-movie-modal.component';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class SpecificMovieComponent implements OnInit {
   movie: MovieDTO = new MovieDTO();
 
   @ViewChild('reviewModal', { static: false }) reviewModal: AddReviewModalComponent;
+  @ViewChild('editMovieModal', { static: false }) editMovieModal: EditMovieModalComponent;
 
   constructor(private route: ActivatedRoute,
     private _movieService: MovieService) { }
@@ -51,6 +53,10 @@ export class SpecificMovieComponent implements OnInit {
     this.reviewModal.initialize(this.movie.id);
   }
 
+  showEditMovieModal(): void {
+    this.editMovieModal.initialize(this.movie.id);
+  }
+
   getMovie() {
     this.route.params.subscribe(params => {
       this._movieService.getMovie(params['movieId']).subscribe((data: MovieDTO) => {
@@ -60,7 +66,7 @@ export class SpecificMovieComponent implements OnInit {
     });
   }
 
-  onEditFinished($event) {
+  onEditFinished(event: string) {
     this.getMovie();
   }
 

@@ -87,5 +87,31 @@ namespace Moviepedia.Services.MovieService
             }
             return false;
         }
+
+        public bool Update(UpdateMovieDTO movieDTO)
+        {
+            bool isUpdated = true;
+            Movie movie = _movieRepository.FindById(movieDTO.Id);
+            if (movie != null)
+            {
+                movie.Picture = movieDTO.Picture;
+                movie.Title = movieDTO.Title;
+
+                var movieInfo = _movieInfoRepository.FindByMovieId(movie.Id);
+                movieInfo.BoxOffice = movieDTO.BoxOffice;
+                movieInfo.Category = movieDTO.Category;
+                movieInfo.ReleaseYear = movieDTO.ReleaseYear;
+
+                _movieRepository.Update(movie);
+                _movieInfoRepository.Update(movieInfo);
+                return isUpdated;
+            }
+            else
+            {
+                isUpdated = false;
+                return isUpdated;
+            }
+           
+        }
     }
 }

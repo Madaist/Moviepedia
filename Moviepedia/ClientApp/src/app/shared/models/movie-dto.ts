@@ -1,6 +1,5 @@
-import { Review } from "./review";
-import { MovieInfoDTO } from "./movie-info-dto";
 import { ActorDTO } from "./actor-dto";
+import { Review } from "./review";
 
 export class MovieDTO {
   id: string;

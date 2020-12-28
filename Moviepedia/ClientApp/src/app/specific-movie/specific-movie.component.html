@@ -2,7 +2,7 @@
   <div class="main-info">
     <img [src]="movie.picture" style="float: left; height:60vh; width: auto; padding-bottom: 3vh;" />
     <div style="position: relative; left: 3vw; font-weight: 400; text-align: justify; padding-right: 3vw;">
-      <button class="btn btn-outline-light" id="edit-button" style="float:right">Edit</button>
+      <button class="btn btn-outline-light" id="edit-button" (click)="showEditMovieModal()" style="float:right">Edit</button>
       <h2>{{movie.title}}</h2>
       <button class="btn btn-outline-light" (click)="deleteMovie()" id="delete-button" style="float:right; top:-2vh;">Delete</button>
       <p>Category: {{movie.category}}</p>
@@ -33,3 +33,4 @@
   </div>
 </div>
 <app-add-review-modal #reviewModal (change)="onEditFinished($event)"></app-add-review-modal>
+<app-edit-movie-modal #editMovieModal (change)="onEditFinished($event)"></app-edit-movie-modal>

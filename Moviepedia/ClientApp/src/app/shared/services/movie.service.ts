@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { UpdateMovieDTO } from '../models/update-movie-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class MovieService {
 
   deleteMovie(movieId: string) {
     return this.http.delete(this.baseUrl + '/Movie/' + movieId, { headers: this.header });
+  }
+
+  updateMovie(movie: UpdateMovieDTO) {
+    return this.http.put(this.baseUrl + '/Movie', movie, { headers: this.header });
   }
 
  

@@ -17,6 +17,7 @@ import { SearchPipe } from '../shared/search.pipe';
 import { SpecificMovieComponent } from '../specific-movie/specific-movie.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AddReviewModalComponent } from '../specific-movie/add-review-modal/add-review-modal.component';
+import { EditMovieModalComponent } from '../specific-movie/edit-movie-modal/edit-movie-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddReviewModalComponent } from '../specific-movie/add-review-modal/add-
     MyProfileComponent,
     SearchPipe,
     SpecificMovieComponent,
-    AddReviewModalComponent
+    AddReviewModalComponent,
+    EditMovieModalComponent
   ],
   imports: [
     CommonModule,
