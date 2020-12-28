@@ -15,6 +15,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { SearchPipe } from '../shared/search.pipe';
 import { SpecificMovieComponent } from '../specific-movie/specific-movie.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AddReviewModalComponent } from '../specific-movie/add-review-modal/add-review-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SpecificMovieComponent } from '../specific-movie/specific-movie.compone
     ActorsComponent,
     MyProfileComponent,
     SearchPipe,
-    SpecificMovieComponent
+    SpecificMovieComponent,
+    AddReviewModalComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +38,8 @@ import { SpecificMovieComponent } from '../specific-movie/specific-movie.compone
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    ModalModule.forRoot()
   ]
 })
 export class LayoutModule { }

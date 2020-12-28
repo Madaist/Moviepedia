@@ -21,6 +21,7 @@ using Moviepedia.Repositories.MovieInfoRepository;
 using Moviepedia.Services.UserService;
 using Moviepedia.Services.MovieService;
 using Moviepedia.Services.ActorService;
+using Moviepedia.Services.ReviewService;
 
 namespace Moviepedia
 {
@@ -90,6 +91,7 @@ namespace Moviepedia
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IMovieService, MovieService>();
             services.AddTransient<IActorService, ActorService>();
+            services.AddTransient<IReviewService, ReviewService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

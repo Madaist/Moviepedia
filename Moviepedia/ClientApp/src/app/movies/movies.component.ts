@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
-import { MovieDTO } from '../models/movie-dto';
+import { MovieService } from '../shared/services/movie.service';
+import { MovieDTO } from '../shared/models/movie-dto';
+
 
 @Component({
   selector: 'app-movies',
@@ -10,10 +11,10 @@ import { MovieDTO } from '../models/movie-dto';
 export class MoviesComponent implements OnInit {
   movies: Array<MovieDTO> = new Array<MovieDTO>();
   searchText: string;
-  constructor(private api: ApiService) { }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    this.api.getMovies().subscribe((data: MovieDTO[]) => {
+    this.movieService.getMovies().subscribe((data: MovieDTO[]) => {
       this.movies = data;
       console.log(this.movies);
     })

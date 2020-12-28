@@ -33,5 +33,19 @@ namespace Moviepedia.Controllers
                 return NotFound(new { message = "Movie not found" });
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteMovie(string id)
+        {
+            var deleteSuccessfull = _movieService.Delete(id);
+            if (deleteSuccessfull)
+            {
+                return Ok(new { message = "Movie deleted successfully" });
+            }
+            else
+            {
+                return BadRequest(new { message = "Movie not found" });
+            }
+        }
     }
 }

@@ -3,27 +3,33 @@
     <img [src]="movie.picture" style="float: left; height:60vh; width: auto; padding-bottom: 3vh;" />
     <div style="position: relative; left: 3vw; font-weight: 400; text-align: justify; padding-right: 3vw;">
       <button class="btn btn-outline-light" id="edit-button" style="float:right">Edit</button>
-      <button class="btn btn-outline-light" id="delete-button" style="float:right">Delete</button>
       <h2>{{movie.title}}</h2>
-
+      <button class="btn btn-outline-light" (click)="deleteMovie()" id="delete-button" style="float:right; top:-2vh;">Delete</button>
       <p>Category: {{movie.category}}</p>
+      <button class="btn btn-outline-light" (click)="showReviewModal()" id="review-button" style="float:right; right: -8vw;">Add review</button>
       <p>Release year: {{movie.releaseYear}}</p>
       <p>Box office: {{movie.boxOffice}}</p>
       <p>{{movie.storyLine}}</p>
     </div>
     <div>
       <br />
-      <p>Main actors:</p>
+      <h3>Main actors:</h3>
       <ng-container *ngFor=" let actor of movie.actors;">
         <div class="view col mb-3 mr-3 p-0 hoverable" style="max-height: 20vh">
-
           <img [src]="actor.picture" class="img-fluid z-depth-1 rounded" alt="hoverable" style="height:20vh" />
-          
           <p style="position:relative; left: 10vw; top: -20vh;">{{actor.firstName}} {{actor.lastName}}</p>
           <p style="position:relative; left: 10vw; top: -22vh; font-size: smaller">{{actor.age}} years old</p>
         </div>
       </ng-container>
+      <div *ngIf="movie.reviews != undefined && movie.reviews.length != 0">
+        <h3>Reviews:</h3>
+        <ng-container *ngFor=" let review of movie.reviews;">
+          <div class="view  hoverable">
+            <p>{{review.content}}</p>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </div>
 </div>
-
+<app-add-review-modal #reviewModal (change)="onEditFinished($event)"></app-add-review-modal>

@@ -19,16 +19,19 @@ namespace Moviepedia.Repositories.GenericRepository
         public void Create(T entity)
         {
             _table.Add(entity);
+            _context.SaveChanges();
         }
 
         public void CreateRange(List<T> entities)
         {
             _table.AddRange(entities);
+            _context.SaveChanges();
         }
 
         public void Delete(T entity)
         {
             _table.Remove(entity);
+            _context.SaveChanges();
         }
 
         public T FindById(string id)
@@ -49,6 +52,7 @@ namespace Moviepedia.Repositories.GenericRepository
         public void Update(T entity)
         {
             _table.Update(entity);
+            _context.SaveChanges();
         }
     }
 }

@@ -76,5 +76,16 @@ namespace Moviepedia.Services.MovieService
             }
             return moviesDTO;
         }
+
+        public bool Delete(string movieId)
+        {
+            var movie = _movieRepository.FindById(movieId);
+            if(movie != null)
+            {
+                _movieRepository.Delete(movie);
+                return true;
+            }
+            return false;
+        }
     }
 }

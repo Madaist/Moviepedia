@@ -1,4 +1,6 @@
-﻿namespace Moviepedia.Models
+﻿using System;
+
+namespace Moviepedia.Models
 {
     public class Review
     {

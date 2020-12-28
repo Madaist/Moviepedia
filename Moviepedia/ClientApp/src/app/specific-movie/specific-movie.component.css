@@ -1,8 +1,8 @@
-#edit-button:hover, #delete-button:hover {
+#edit-button:hover, #delete-button:hover, #review-button:hover {
   background-color: #eee;
   color: #b380ff;
 }
 
-#edit-button, #delete-button {
+#edit-button, #delete-button, #review-button {
   background-color: #b380ff;
 }

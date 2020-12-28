@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieDTO } from '../models/movie-dto';
-import { ApiService } from '../api.service';
+import Swal from 'sweetalert2';
+import { MovieService } from '../shared/services/movie.service';
+import { MovieDTO } from '../shared/models/movie-dto';
+import { AddReviewModalComponent } from './add-review-modal/add-review-modal.component';
+
 
 @Component({
   selector: 'app-specific-movie',
@@ -9,20 +12,56 @@ import { ApiService } from '../api.service';
   styleUrls: ['./specific-movie.component.css']
 })
 export class SpecificMovieComponent implements OnInit {
-
-  constructor(private route: ActivatedRoute, private api: ApiService) { }
-
   movie: MovieDTO = new MovieDTO();
 
+  @ViewChild('reviewModal', { static: false }) reviewModal: AddReviewModalComponent;
+
+  constructor(private route: ActivatedRoute,
+    private _movieService: MovieService) { }
+
   ngOnInit() {
+    this.getMovie();
+  }
+
+  deleteMovie() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#cc99ff',
+      cancelButtonColor: '#a64dff',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._movieService.deleteMovie(this.movie.id).subscribe(() => {
+          Swal.fire({
+            title: 'Deleted!',
+            text: 'Movie has been deleted.',
+            icon: 'success',
+            confirmButtonColor: '#a64dff'
+          }
+          )
+        });
+      }
+    })
+  }
+
+  showReviewModal(): void {
+    this.reviewModal.initialize(this.movie.id);
+  }
+
+  getMovie() {
     this.route.params.subscribe(params => {
-      //console.log(params);
-      //console.log(params['movieId']);
-      this.api.getMovie(params['movieId']).subscribe((data: MovieDTO) => {
+      this._movieService.getMovie(params['movieId']).subscribe((data: MovieDTO) => {
         this.movie = data;
         console.log(this.movie);
       })
     });
+  }
+
+  onEditFinished($event) {
+    this.getMovie();
   }
 
 }

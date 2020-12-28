@@ -1,0 +1,13 @@
+form {
+  background-color: white;
+  border-radius: 10px;
+}
+
+#add-review:hover {
+  background-color: #eee;
+  color: #b380ff;
+}
+
+#add-review {
+  background-color: #b380ff;
+}
