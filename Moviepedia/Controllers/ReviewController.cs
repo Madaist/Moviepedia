@@ -29,5 +29,31 @@ namespace Moviepedia.Controllers
             }
             return BadRequest();
         }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_reviewService.GetAll());
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteReview(string id)
+        {
+            var deleteSuccessfull = _reviewService.Delete(id);
+            if (deleteSuccessfull)
+            {
+                return Ok(new { message = "Review deleted successfully" });
+            }
+            return BadRequest(new { message = "Review not found" });
+        }
+
+        public IActionResult UpdateReview(UpdateReviewDTO reviewDTO)
+        {
+            if (_reviewService.Update(reviewDTO))
+            {
+                return Ok();
+            }
+            return NotFound(new { message = "Review not found" });
+        }
     }
 }

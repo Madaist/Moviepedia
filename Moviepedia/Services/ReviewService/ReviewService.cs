@@ -2,6 +2,7 @@
 using Moviepedia.Models;
 using Moviepedia.Repositories.ReviewRepository;
 using System;
+using System.Collections.Generic;
 
 namespace Moviepedia.Services.ReviewService
 {
@@ -13,10 +14,10 @@ namespace Moviepedia.Services.ReviewService
         {
             _reviewRepository = reviewRepository;
         }
-        public bool Create(string userId, PostReviewDTO postReview)
+        public bool Create(string userId, PostReviewDTO reviewDTO)
         {
             bool isCreated = true;
-            if(postReview == null || userId == null)
+            if(reviewDTO == null || userId == null)
             {
                 isCreated = false;
                 return isCreated;
@@ -24,12 +25,42 @@ namespace Moviepedia.Services.ReviewService
             Review review = new Review
             {
                 Id = Guid.NewGuid().ToString(),
-                MovieId = postReview.MovieId,
+                MovieId = reviewDTO.MovieId,
                 UserId = userId,
-                Content = postReview.Content
+                Content = reviewDTO.Content
             };
             _reviewRepository.Create(review);
             return isCreated;
+        }
+
+        public IEnumerable<Review> GetAll()
+        {
+            return _reviewRepository.GetAll();
+        }
+
+        public bool Delete(string reviewId)
+        {
+            var review = _reviewRepository.FindById(reviewId);
+            if (review != null)
+            {
+                _reviewRepository.Delete(review);
+                return true;
+            }
+            return false;
+        }
+
+        public bool Update(UpdateReviewDTO reviewDTO)
+        {
+            bool isUpdated = true;
+            var review = _reviewRepository.FindById(reviewDTO.Id);
+            if(review == null)
+            {
+                isUpdated = false;
+                return isUpdated;
+            }
+            review.Content = reviewDTO.Content;
+            _reviewRepository.Update(review);
+            return isUpdated;
         }
     }
 }

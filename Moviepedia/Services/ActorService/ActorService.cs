@@ -2,6 +2,7 @@
 using Moviepedia.Models;
 using Moviepedia.Repositories.ActorRepository;
 using Moviepedia.Repositories.MovieActorsRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,6 +41,53 @@ namespace Moviepedia.Services.ActorService
                 }
             }
             return actorsDTO;
+        }
+
+        public void Create(ActorDTO actorDTO)
+        {
+            Actor actor = new Actor
+            {
+                Id = Guid.NewGuid().ToString(),
+                FirstName = actorDTO.FirstName,
+                LastName = actorDTO.LastName,
+                Picture = actorDTO.Picture,
+                Age = actorDTO.Age
+            };
+            _actorRepository.Create(actor);
+        }
+
+        public IEnumerable<Actor> GetAll()
+        {
+            return _actorRepository.GetAll();
+        }
+
+        public bool Delete(string actorId)
+        {
+            var actor = _actorRepository.FindById(actorId);
+            if(actor != null)
+            {
+                _actorRepository.Delete(actor);
+                return true;
+            }
+            return false;
+        }
+
+        public bool Update(ActorDTO actorDTO)
+        {
+            var isUpdated = true;
+            Actor actor = _actorRepository.FindById(actorDTO.Id);
+            if(actor == null)
+            {
+                isUpdated = false;
+                return isUpdated;
+            }
+            actor.LastName = actorDTO.LastName;
+            actor.FirstName = actorDTO.FirstName;
+            actor.Age = actorDTO.Age;
+            actor.Picture = actorDTO.Picture;
+
+            _actorRepository.Update(actor);
+            return isUpdated;
         }
     }
 }

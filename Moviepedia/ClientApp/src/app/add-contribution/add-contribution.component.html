@@ -1,4 +1,51 @@
 <div class="main-content">
   <button class="btn btn-outline-light" id="add-movie" block=true (click)="showCreateMovieModal()">Add a movie</button>
+  <button class="btn btn-outline-light" id="add-actor" block=true (click)="showCreateActorModal()">Add an actor</button>
+
+  <carousel autoplay="true" autoplayInterval="2000" id="carousel">
+    <div class="carousel-cell">
+      <img src="./assets/img/dicaprio.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/winslet.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/hanks.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/jolie.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/phoenix.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/watson.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/pacino.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/stone.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/freeman.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/bullock.jfif">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/pitt.jfif">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/robbie.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/brando.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="./assets/img/deniro.jfif">
+    </div>
+  </carousel>
 </div>
 <app-add-movie-modal #addMovieModal></app-add-movie-modal>
+<app-add-actor-modal #addActorModal></app-add-actor-modal>

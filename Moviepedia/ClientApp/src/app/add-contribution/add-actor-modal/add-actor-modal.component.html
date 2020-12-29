@@ -1,1 +1,21 @@
-<p>add-actor-modal works!</p>
+<div bsModal class=" row modal fade" #addActorModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="addActorModal"
+     aria-hidden="true" (onHide)="this.addActorForm.reset();">
+  <div class="col-md-6 col-sm-6 col-lg-4 mx-auto my-4" *ngIf="addActorForm">
+
+    <form class="text-center border border-light p-5" [formGroup]="addActorForm">
+      <p class="h4 mb-4">Add actor</p>
+      <label>Last name</label>
+      <input type="text" class="form-control mb-4" formControlName="lastName" autocomplete="off" style="text-align: center" />
+      <label>First name</label>
+      <input type="text" class="form-control mb-4" formControlName="firstName" autocomplete="off" />
+      <label>Age</label>
+      <textarea type="number" class="form-control mb-4" formControlName="age" autocomplete="off"></textarea>
+      <label>Picture</label>
+      <input type="text" class="form-control mb-4" formControlName="picture" autocomplete="off" style="text-align: center" />
+      
+      <button class="btn btn-outline-light" id="add-actor" block=true [disabled]="addActorForm.invalid || addActorForm.pristine" (click)="addActor()">Add</button>
+    </form>
+
+  </div>
+</div>
+
