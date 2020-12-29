@@ -1,0 +1,56 @@
+.detail {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+#p1 {
+  text-align: center;
+  font-weight: 400;
+  padding-top: 5px;
+  margin-bottom: 0;
+  overflow: hidden;
+  color: #a366ff;
+  font-size: smaller;
+}
+
+
+#container-content {
+  text-align: center;
+}
+
+form {
+  margin: auto;
+  padding-bottom: 30px;
+}
+
+.add {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 22px;
+  color: black;
+}
+
+img {
+  width: 20vw;
+  height: 50vh;
+  padding-left: 2vw;
+}
+
+.view .mask {
+  height: 88%;
+}
+
+
+#delete-button:hover, #edit-button:hover {
+  background-color: #eee;
+  color: #b380ff;
+ 
+}
+
+#delete-button, #edit-button {
+  background-color: #b380ff;
+  position: relative;
+  left: 3.5vw;
+  
+}

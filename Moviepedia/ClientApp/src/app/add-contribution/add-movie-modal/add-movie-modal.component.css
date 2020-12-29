@@ -11,3 +11,7 @@ form {
 #add-movie {
   background-color: #b380ff;
 }
+
+#modal{
+    z-index:3;
+}

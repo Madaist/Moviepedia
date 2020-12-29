@@ -11,3 +11,7 @@
   background-color: #b380ff;
   margin-bottom: 12vh;
 }
+
+#carousel{
+    z-index:0;
+}

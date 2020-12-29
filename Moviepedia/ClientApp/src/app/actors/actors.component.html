@@ -1,1 +1,21 @@
-<p>actors works!</p>
+<div class="main-content">
+  <div class="container">
+    <div class="row pl-5">
+      <ng-container *ngFor=" let actor of actors; let ind = index">
+        <div class="view col mb-3 mr-3 p-0 hoverable" id="info">
+          <img [src]="actor.picture" class="img-fluid z-depth-1 rounded" alt="hoverable" />
+
+          <div class="detail">
+            <p id="p1">{{actor.firstName}} {{actor.lastName}} </p>
+            <button class="btn btn-outline-light" id="delete-button" (click)="deleteActor(actor.id)">Delete</button>
+            <button class="btn btn-outline-light" id="edit-button">Edit</button>
+          </div>
+
+        </div>
+        <div class="w-100" *ngIf="ind != 0 && (ind + 1) % 3 == 0"></div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+
