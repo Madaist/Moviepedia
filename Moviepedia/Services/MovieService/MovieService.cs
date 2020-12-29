@@ -4,6 +4,7 @@ using Moviepedia.Repositories.MovieInfoRepository;
 using Moviepedia.Repositories.MovieRepository;
 using Moviepedia.Repositories.ReviewRepository;
 using Moviepedia.Services.ActorService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -50,21 +51,6 @@ namespace Moviepedia.Services.MovieService
             }
         }
 
-        //public MovieInfoDTO GetMovieInfoDTO(string movieId)
-        //{
-        //    Movie movie = _movieRepository.FindById(movieId);
-        //    var movieInfo = _movieInfoRepository.FindById(movie.MovieInfoId);
-        //    MovieInfoDTO movieInfoDTO = new MovieInfoDTO
-        //    {
-        //        Id = movieInfo.Id,
-        //        BoxOffice = movieInfo.BoxOffice,
-        //        Category = movieInfo.Category,
-        //        ReleaseYear = movieInfo.ReleaseYear,
-        //        StoryLine = movieInfo.StoryLine
-        //    };
-        //    return movieInfoDTO;
-        //}
-
         public ICollection<MovieDTO> GetAll()
         {
             IEnumerable<string> movieIds = _movieRepository.GetAll().Select(x => x.Id);
@@ -80,7 +66,7 @@ namespace Moviepedia.Services.MovieService
         public bool Delete(string movieId)
         {
             var movie = _movieRepository.FindById(movieId);
-            if(movie != null)
+            if (movie != null)
             {
                 _movieRepository.Delete(movie);
                 return true;
@@ -111,7 +97,31 @@ namespace Moviepedia.Services.MovieService
                 isUpdated = false;
                 return isUpdated;
             }
-           
+
+        }
+
+        public void Create(PostMovieDTO movieDTO)
+        {
+            MovieInfo movieInfo = new MovieInfo
+            {
+                Id = Guid.NewGuid().ToString(),
+                BoxOffice = movieDTO.BoxOffice,
+                Category = movieDTO.Category,
+                ReleaseYear = movieDTO.ReleaseYear,
+                StoryLine = movieDTO.StoryLine
+            };
+
+            Movie movie = new Movie
+            {
+                Id = Guid.NewGuid().ToString(),
+                Title = movieDTO.Title,
+                Picture = movieDTO.Picture,
+                MovieInfoId = movieInfo.Id
+            };
+
+            _movieInfoRepository.Create(movieInfo);
+            _movieRepository.Create(movie);
+
         }
     }
 }

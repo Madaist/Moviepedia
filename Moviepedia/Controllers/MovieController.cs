@@ -51,5 +51,12 @@ namespace Moviepedia.Controllers
             }
             return NotFound(new { message = "Movie not found" });
         }
+
+        [HttpPost]
+        public IActionResult CreateMovie(PostMovieDTO movieDTO)
+        {
+            _movieService.Create(movieDTO);
+            return Ok();
+        }
     }
 }

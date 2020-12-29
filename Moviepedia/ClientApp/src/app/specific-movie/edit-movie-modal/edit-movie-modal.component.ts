@@ -5,6 +5,7 @@ import { MovieDTO } from '../../shared/models/movie-dto';
 import { MovieService } from '../../shared/services/movie.service';
 import { UpdateMovieDTO } from '../../shared/models/update-movie-dto';
 import Swal from 'sweetalert2';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-movie-modal',
@@ -66,7 +67,7 @@ export class EditMovieModalComponent {
           confirmButtonColor: '#b380ff',
         });
       },
-        (error: Error) => {
+        (error: HttpErrorResponse) => {
           console.log('err', error);
           Swal.fire({
             icon: 'error',

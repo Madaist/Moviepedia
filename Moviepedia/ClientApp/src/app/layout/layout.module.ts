@@ -18,6 +18,9 @@ import { SpecificMovieComponent } from '../specific-movie/specific-movie.compone
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AddReviewModalComponent } from '../specific-movie/add-review-modal/add-review-modal.component';
 import { EditMovieModalComponent } from '../specific-movie/edit-movie-modal/edit-movie-modal.component';
+import { AddContributionComponent } from '../add-contribution/add-contribution.component';
+import { AddMovieModalComponent } from '../add-contribution/add-movie-modal/add-movie-modal.component';
+import { AddActorModalComponent } from '../add-contribution/add-actor-modal/add-actor-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { EditMovieModalComponent } from '../specific-movie/edit-movie-modal/edit
     SearchPipe,
     SpecificMovieComponent,
     AddReviewModalComponent,
-    EditMovieModalComponent
+    EditMovieModalComponent,
+    AddContributionComponent,
+    AddMovieModalComponent,
+    AddActorModalComponent
   ],
   imports: [
     CommonModule,

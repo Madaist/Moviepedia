@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { UpdateMovieDTO } from '../models/update-movie-dto';
+import { PostMovieDTO } from '../models/post-movie-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,7 @@ export class MovieService {
     return this.http.put(this.baseUrl + '/Movie', movie, { headers: this.header });
   }
 
- 
+  createMovie(movie: PostMovieDTO) {
+    return this.http.post(this.baseUrl + '/Movie', movie, { headers: this.header });
+  }
 }

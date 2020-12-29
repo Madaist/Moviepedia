@@ -4,12 +4,18 @@
 
     <form class="text-center border border-light p-5" [formGroup]="editMovieForm">
       <p class="h4 mb-4">Edit movie</p>
-      <input type="text" class="form-control mb-4" formControlName="title" value={{movie.title}} autocomplete="off"/>
-      <input type="text" class="form-control mb-4" formControlName="picture" value={{movie.picture}} autocomplete="off"/>
+      <label>Title</label>
+      <input type="text" class="form-control mb-4" formControlName="title" value={{movie.title}} autocomplete="off" style="text-align: center"/>
+      <label>Picture</label>
+      <input type="text" class="form-control mb-4" formControlName="picture" value={{movie.picture}} autocomplete="off" />
+      <label>Story line:</label>
       <textarea type="text" class="form-control mb-4" formControlName="storyLine" value={{movie.storyLine}} autocomplete="off"></textarea>
-      <input type="number" class="form-control mb-4" formControlName="releaseYear" value={{movie.releaseYear}} autocomplete="off"/>
-      <input type="text" class="form-control mb-4" formControlName="category" value={{movie.category}} autocomplete="off"/>
-      <input type="text" class="form-control mb-4" formControlName="boxOffice" value={{movie.boxOffice}} autocomplete="off"/>
+      <label>Release year:</label>
+      <input type="number" class="form-control mb-4" formControlName="releaseYear" value={{movie.releaseYear}} autocomplete="off" style="text-align: center"/>
+      <label>Category</label>
+      <input type="text" class="form-control mb-4" formControlName="category" value={{movie.category}} autocomplete="off" style="text-align: center"/>
+      <label>Box office</label>
+      <input type="text" class="form-control mb-4" formControlName="boxOffice" value={{movie.boxOffice}} autocomplete="off" style="text-align: center"/>
       <button class="btn btn-outline-light" id="edit-movie" block=true [disabled]="editMovieForm.invalid || editMovieForm.pristine" (click)="editMovie()">Edit</button>
     </form>
 
