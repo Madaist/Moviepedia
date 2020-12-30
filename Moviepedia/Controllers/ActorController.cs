@@ -50,5 +50,16 @@ namespace Moviepedia.Controllers
             }
             return NotFound(new { message = "Actor not found" });
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GeActor(string id)
+        {
+            var actor = _actorService.GetById(id);
+            if (actor != null)
+            {
+                return Ok(actor);
+            }
+            return NotFound(new { message = "Actor not found" });
+        }
     }
 }

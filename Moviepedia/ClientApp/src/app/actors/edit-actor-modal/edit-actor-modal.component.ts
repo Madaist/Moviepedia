@@ -7,46 +7,53 @@ import Swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-add-actor-modal',
-  templateUrl: './add-actor-modal.component.html',
-  styleUrls: ['./add-actor-modal.component.css']
+  selector: 'app-edit-actor-modal',
+  templateUrl: './edit-actor-modal.component.html',
+  styleUrls: ['./edit-actor-modal.component.css']
 })
-export class AddActorModalComponent {
-
-  @ViewChild('addActorModal', { static: false }) modal: ModalDirective;
+export class EditActorModalComponent {
+  @ViewChild('editActorModal', { static: false }) modal: ModalDirective;
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
 
-  addActorForm: FormGroup;
+  editActorForm: FormGroup;
   actor: ActorDTO = new ActorDTO();
 
   constructor(public fb: FormBuilder, private _actorService: ActorService) { }
 
-  initialize(): void {
+  initialize(actorId: string): void {
     this.modal.show();
-    this.initializeForm();
+    this._actorService.getActor(actorId)
+      .subscribe((data: ActorDTO) => {
+        this.actor = data;
+        console.log(this.actor);
+        this.initializeForm(this.actor);
+      },
+        (error: Error) => {
+          console.log('err', error);
+        });
   }
 
-  initializeForm() {
-    this.addActorForm = this.fb.group({
-      lastName: [null, Validators.required],
-      firstName: [null, Validators.required],
-      age: [null, Validators.required],
-      picture: [null, Validators.required],
+  initializeForm(actor: ActorDTO) {
+    this.editActorForm = this.fb.group({
+      lastName: [actor.lastName, Validators.required],
+      firstName: [actor.firstName, Validators.required],
+      picture: [actor.picture, Validators.required],
+      age: [actor.age, Validators.required],
     });
   }
 
-  addActor() {
-    const createdActor = new ActorDTO(
-      null,
-      this.addActorForm.value.lastName,
-      this.addActorForm.value.firstName,
-      this.addActorForm.value.age,
-      this.addActorForm.value.picture
+  editActor() {
+    const editedActor = new ActorDTO(
+      this.actor.id,
+      this.editActorForm.value.lastName,
+      this.editActorForm.value.firstName,
+      this.editActorForm.value.age,
+      this.editActorForm.value.picture,
     );
 
-    this._actorService.addActor(createdActor)
+    this._actorService.updateActor(editedActor)
       .subscribe(() => {
-        this.change.emit('createActor');
+        this.change.emit('updateActor');
         this.modal.hide();
         Swal.fire({
           title: 'Changes have been submitted.',
@@ -66,6 +73,7 @@ export class AddActorModalComponent {
             width: '30vw',
           });
         });
+
   }
 
 }

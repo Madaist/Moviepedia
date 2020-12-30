@@ -23,6 +23,10 @@ export class ActorService {
     return this.http.get(this.baseUrl, { headers: this.header });
   }
 
+  getActor(actorId: string) {
+    return this.http.get(this.baseUrl + '/' + actorId, { headers: this.header });
+  }
+
   deleteActor(actorId: string) {
     return this.http.delete(this.baseUrl + '/' + actorId, { headers: this.header });
   }

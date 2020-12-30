@@ -11,5 +11,6 @@ namespace Moviepedia.Services.ActorService
         public bool Delete(string actorId);
         public IEnumerable<Actor> GetAll();
         public bool Update(ActorDTO actorDTO);
+        public Actor GetById(string actorId);
     }
 }

@@ -72,6 +72,11 @@ namespace Moviepedia.Services.ActorService
             return false;
         }
 
+        public Actor GetById(string actorId)
+        {
+            return _actorRepository.FindById(actorId);
+        }
+
         public bool Update(ActorDTO actorDTO)
         {
             var isUpdated = true;

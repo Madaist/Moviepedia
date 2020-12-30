@@ -8,7 +8,7 @@
           <div class="detail">
             <p id="p1">{{actor.firstName}} {{actor.lastName}} </p>
             <button class="btn btn-outline-light" id="delete-button" (click)="deleteActor(actor.id)">Delete</button>
-            <button class="btn btn-outline-light" id="edit-button">Edit</button>
+            <button class="btn btn-outline-light" id="edit-button" (click)="showEditActorModal(actor.id)">Edit</button>
           </div>
 
         </div>
@@ -18,4 +18,4 @@
   </div>
 </div>
 
-
+<app-edit-actor-modal #editActorModal (change)="onEditFinished($event)"></app-edit-actor-modal>

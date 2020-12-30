@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActorDTO } from '../shared/models/actor-dto';
 import { ActorService } from '../shared/services/actor.service';
 import Swal from 'sweetalert2';
+import { EditActorModalComponent } from './edit-actor-modal/edit-actor-modal.component';
 
 @Component({
   selector: 'app-actors',
@@ -10,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ActorsComponent implements OnInit {
   actors: Array<ActorDTO> = new Array<ActorDTO>();
+  @ViewChild('editActorModal', { static: false }) editActorModal: EditActorModalComponent;
 
   constructor(private _actorService: ActorService) { }
 
@@ -21,6 +23,14 @@ export class ActorsComponent implements OnInit {
     this._actorService.getActors().subscribe((data: ActorDTO[]) => {
       this.actors = data;
     })
+  }
+
+  showEditActorModal(actorId: string): void {
+    this.editActorModal.initialize(actorId);
+  }
+
+  onEditFinished(event: string) {
+    this.getActors();
   }
 
   deleteActor(actorId: string) {
