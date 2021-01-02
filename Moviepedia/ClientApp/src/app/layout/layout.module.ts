@@ -24,6 +24,8 @@ import { AddActorModalComponent } from '../add-contribution/add-actor-modal/add-
 import { EditActorModalComponent } from '../actors/edit-actor-modal/edit-actor-modal.component';
 import { AddMovieactorModalComponent } from '../specific-movie/add-movieactor-modal/add-movieactor-modal.component';
 import { PurpleButtonDirective } from '../shared/directives/purple-button.directive';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoadingInterceptor } from '../shared/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,9 @@ import { PurpleButtonDirective } from '../shared/directives/purple-button.direct
     MatTooltipModule,
     IvyCarouselModule,
     ModalModule.forRoot(),
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
   ]
 })
 export class LayoutModule { }
