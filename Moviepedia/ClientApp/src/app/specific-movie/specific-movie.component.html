@@ -2,11 +2,11 @@
   <div class="main-info">
     <img [src]="movie.picture" style="float: left; height:60vh; width: auto; padding-bottom: 3vh;" />
     <div style="position: relative; left: 3vw; font-weight: 400; text-align: justify; padding-right: 3vw;">
-      <button class="btn btn-outline-light" id="edit-button" (click)="showEditMovieModal()" style="float:right">Edit</button>
+      <button class="btn btn-outline-light" appPurpleButton (click)="showEditMovieModal()" style="float:right">Edit</button>
       <h2>{{movie.title}}</h2>
-      <button class="btn btn-outline-light" (click)="deleteMovie()" id="delete-button" style="float:right; top:-2vh;">Delete</button>
+      <button class="btn btn-outline-light" (click)="deleteMovie()" appPurpleButton style="float:right; top:-2vh;">Delete</button>
       <p>Category: {{movie.category}}</p>
-      <button class="btn btn-outline-light" (click)="showReviewModal()" id="review-button" style="float:right; right: -8vw;">Add review</button>
+      <button class="btn btn-outline-light" (click)="showReviewModal()" appPurpleButton style="float:right; right: -8vw;">Add review</button>
       <p>Release year: {{movie.releaseYear}}</p>
       <p>Box office: {{movie.boxOffice}}</p>
       <p>{{movie.storyLine}}</p>
@@ -14,7 +14,7 @@
     <div *ngIf="movie.actors != undefined && movie.actors.length != 0">
       <br />
       <h3 style="float:left">Main actors:</h3>
-      <button class="btn btn-outline-light" id="movieactors-button" (click) ="showAddActorModal()" style="float:right;">Add actors</button>
+      <button class="btn btn-outline-light" appPurpleButton (click) ="showAddActorModal()" style="float:right;">Add actors</button>
       <ng-container *ngFor=" let actor of movie.actors;">
         <div class="view col mb-3 mr-3 p-0 hoverable" style="max-height: 20vh">
           <img [src]="actor.picture" class="img-fluid z-depth-1 rounded" alt="hoverable" style="height:20vh" />

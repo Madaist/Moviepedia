@@ -16,7 +16,7 @@
       <input type="text" class="form-control mb-4" formControlName="category" value={{movie.category}} autocomplete="off" style="text-align: center"/>
       <label>Box office</label>
       <input type="text" class="form-control mb-4" formControlName="boxOffice" value={{movie.boxOffice}} autocomplete="off" style="text-align: center"/>
-      <button class="btn btn-outline-light" id="edit-movie" block=true [disabled]="editMovieForm.invalid || editMovieForm.pristine" (click)="editMovie()">Edit</button>
+      <button class="btn btn-outline-light" appPurpleButton block=true [disabled]="editMovieForm.invalid || editMovieForm.pristine" (click)="editMovie()">Edit</button>
     </form>
 
   </div>

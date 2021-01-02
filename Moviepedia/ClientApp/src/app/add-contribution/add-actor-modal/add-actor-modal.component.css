@@ -2,12 +2,3 @@ form {
   background-color: white;
   border-radius: 10px;
 }
-
-#add-actor:hover {
-  background-color: #eee;
-  color: #b380ff;
-}
-
-#add-actor {
-  background-color: #b380ff;
-}

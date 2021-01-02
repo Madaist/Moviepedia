@@ -5,7 +5,7 @@
     <form class="text-center border border-light p-5" [formGroup]="addReviewForm">
       <p class="h4 mb-4">Add a review</p>
       <textarea type="text" class="form-control mb-4" formControlName="content" placeholder="Enter your review" autocomplete="off"></textarea>
-      <button class="btn btn-outline-light" id="add-review" block=true [disabled]="addReviewForm.invalid || addReviewForm.pristine" (click)="addReview()">Add</button>
+      <button class="btn btn-outline-light" appPurpleButton block=true [disabled]="addReviewForm.invalid || addReviewForm.pristine" (click)="addReview()">Add</button>
     </form>
 
   </div>

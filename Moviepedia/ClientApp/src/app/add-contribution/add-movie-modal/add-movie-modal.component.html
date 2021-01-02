@@ -16,7 +16,7 @@
       <input type="text" class="form-control mb-4" formControlName="category" autocomplete="off" style="text-align: center" />
       <label>Box office</label>
       <input type="text" class="form-control mb-4" formControlName="boxOffice" autocomplete="off" style="text-align: center" />
-      <button class="btn btn-outline-light" id="add-movie" block=true [disabled]="addMovieForm.invalid || addMovieForm.pristine" (click)="createMovie()">Add</button>
+      <button class="btn btn-outline-light" appPurpleButton block=true [disabled]="addMovieForm.invalid || addMovieForm.pristine" (click)="createMovie()">Add</button>
     </form>
 
   </div>

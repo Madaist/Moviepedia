@@ -13,7 +13,7 @@
       <label>Picture</label>
       <input type="text" class="form-control mb-4" formControlName="picture" autocomplete="off" style="text-align: center" />
       
-      <button class="btn btn-outline-light" id="add-actor" block=true [disabled]="addActorForm.invalid || addActorForm.pristine" (click)="addActor()">Add</button>
+      <button class="btn btn-outline-light" appPurpleButton block=true [disabled]="addActorForm.invalid || addActorForm.pristine" (click)="addActor()">Add</button>
     </form>
 
   </div>

@@ -41,16 +41,7 @@ img {
   height: 88%;
 }
 
-
-#delete-button:hover, #edit-button:hover {
-  background-color: #eee;
-  color: #b380ff;
- 
-}
-
 #delete-button, #edit-button {
-  background-color: #b380ff;
   position: relative;
   left: 3.5vw;
-  
 }

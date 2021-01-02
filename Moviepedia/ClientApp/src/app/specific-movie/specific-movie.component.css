@@ -1,8 +1,0 @@
-#edit-button:hover, #delete-button:hover, #review-button:hover, #movieactors-button:hover {
-  background-color: #eee;
-  color: #b380ff;
-}
-
-#edit-button, #delete-button, #review-button, #movieactors-button {
-  background-color: #b380ff;
-}

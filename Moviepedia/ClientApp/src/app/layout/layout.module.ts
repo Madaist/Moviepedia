@@ -23,6 +23,7 @@ import { AddMovieModalComponent } from '../add-contribution/add-movie-modal/add-
 import { AddActorModalComponent } from '../add-contribution/add-actor-modal/add-actor-modal.component';
 import { EditActorModalComponent } from '../actors/edit-actor-modal/edit-actor-modal.component';
 import { AddMovieactorModalComponent } from '../specific-movie/add-movieactor-modal/add-movieactor-modal.component';
+import { PurpleButtonDirective } from '../shared/directives/purple-button.directive';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AddMovieactorModalComponent } from '../specific-movie/add-movieactor-mo
     AddMovieModalComponent,
     AddActorModalComponent,
     EditActorModalComponent,
-    AddMovieactorModalComponent
+    AddMovieactorModalComponent,
+    PurpleButtonDirective
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,7 @@ import { AddMovieactorModalComponent } from '../specific-movie/add-movieactor-mo
     MatSelectModule,
     MatTooltipModule,
     IvyCarouselModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ]
 })
 export class LayoutModule { }

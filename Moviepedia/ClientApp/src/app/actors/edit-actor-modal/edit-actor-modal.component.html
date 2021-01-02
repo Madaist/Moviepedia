@@ -13,7 +13,7 @@
       <label>Age</label>
       <input type="number" class="form-control mb-4" formControlName="age" value={{actor.age}} autocomplete="off" style="text-align: center" />
       
-      <button class="btn btn-outline-light" id="edit-actor" block=true [disabled]="editActorForm.invalid || editActorForm.pristine" (click)="editActor()">Edit</button>
+      <button class="btn btn-outline-light" appPurpleButton block=true [disabled]="editActorForm.invalid || editActorForm.pristine" (click)="editActor()">Edit</button>
     </form>
 
   </div>

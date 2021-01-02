@@ -1,14 +1,8 @@
-#add-movie:hover, #add-actor:hover {
-  background-color: #eee;
-  color: #b380ff;
-}
-
 #add-movie, #add-actor {
   width: 30vw;
   height: 20vh;
   margin-right: 3vw !important;
   margin-left: 3vw;
-  background-color: #b380ff;
   margin-bottom: 12vh;
 }
 

@@ -3,15 +3,6 @@ form {
   border-radius: 10px;
 }
 
-#add-movie:hover {
-  background-color: #eee;
-  color: #b380ff;
-}
-
-#add-movie {
-  background-color: #b380ff;
-}
-
 #modal{
     z-index:3;
 }
