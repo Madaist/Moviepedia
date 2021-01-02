@@ -17,7 +17,12 @@ namespace Moviepedia.Repositories.MovieActorsRepository
 
         public IEnumerable<MovieActors> FindByMovieId(string movieId)
         {
-            return GetAll().Where(x => x.MovieId == movieId);
+            return  GetAll().Where(x => x.MovieId == movieId);
+        }
+
+        public IQueryable<MovieActors> FindByMovieIdAndActorId(string movieId, string actorId)
+        {
+            return _context.MovieActors.Where(x => x.MovieId == movieId && x.ActorId == actorId);
         }
     }
 }

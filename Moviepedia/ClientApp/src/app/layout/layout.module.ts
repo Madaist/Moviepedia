@@ -22,6 +22,7 @@ import { AddContributionComponent } from '../add-contribution/add-contribution.c
 import { AddMovieModalComponent } from '../add-contribution/add-movie-modal/add-movie-modal.component';
 import { AddActorModalComponent } from '../add-contribution/add-actor-modal/add-actor-modal.component';
 import { EditActorModalComponent } from '../actors/edit-actor-modal/edit-actor-modal.component';
+import { AddMovieactorModalComponent } from '../specific-movie/add-movieactor-modal/add-movieactor-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EditActorModalComponent } from '../actors/edit-actor-modal/edit-actor-m
     AddContributionComponent,
     AddMovieModalComponent,
     AddActorModalComponent,
-    EditActorModalComponent
+    EditActorModalComponent,
+    AddMovieactorModalComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,20 @@
+<div bsModal class=" row modal fade" #addMovieactorModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="addMovieactorModal"
+     aria-hidden="true" (onHide)="this.addMovieActorForm.reset();">
+  <div class="col-md-6 col-sm-6 col-lg-4 mx-auto my-4" *ngIf="addMovieActorForm">
+
+    <form class="text-center border border-light p-5">
+      <p class="h4 mb-4">Add an actor</p>
+      <mat-form-field>
+        <mat-select placeholder="Actors" [(ngModel)]="selectedActor" name="actor">
+          <mat-option *ngFor="let actor of actors" [value]="actor.id">
+            {{actor.firstName}} {{actor.lastName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+     
+      <button class="btn btn-outline-light" id="add-actor" block=true (click)="addMovieActor()">Add</button>
+    </form>
+
+  </div>
+</div>
+

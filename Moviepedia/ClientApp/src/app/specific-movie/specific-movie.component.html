@@ -11,9 +11,10 @@
       <p>Box office: {{movie.boxOffice}}</p>
       <p>{{movie.storyLine}}</p>
     </div>
-    <div  *ngIf="movie.actors != undefined && movie.actors.length != 0">
+    <div *ngIf="movie.actors != undefined && movie.actors.length != 0">
       <br />
-      <h3>Main actors:</h3>
+      <h3 style="float:left">Main actors:</h3>
+      <button class="btn btn-outline-light" id="movieactors-button" (click) ="showAddActorModal()" style="float:right;">Add actors</button>
       <ng-container *ngFor=" let actor of movie.actors;">
         <div class="view col mb-3 mr-3 p-0 hoverable" style="max-height: 20vh">
           <img [src]="actor.picture" class="img-fluid z-depth-1 rounded" alt="hoverable" style="height:20vh" />
@@ -34,3 +35,4 @@
 </div>
 <app-add-review-modal #reviewModal (change)="onEditFinished($event)"></app-add-review-modal>
 <app-edit-movie-modal #editMovieModal (change)="onEditFinished($event)"></app-edit-movie-modal>
+<app-add-movieactor-modal #addMovieactorModal (change)="onEditFinished($event)"></app-add-movieactor-modal>

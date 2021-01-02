@@ -10,5 +10,6 @@ namespace Moviepedia.Repositories.MovieActorsRepository
     public interface IMovieActorsRepository : IGenericRepository<MovieActors>
     {
         public IEnumerable<MovieActors> FindByMovieId(string movieId);
+        public IQueryable<MovieActors> FindByMovieIdAndActorId(string movieId, string actorId);
     }
 }

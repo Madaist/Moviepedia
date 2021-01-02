@@ -5,6 +5,7 @@ import { MovieService } from '../shared/services/movie.service';
 import { MovieDTO } from '../shared/models/movie-dto';
 import { AddReviewModalComponent } from './add-review-modal/add-review-modal.component';
 import { EditMovieModalComponent } from './edit-movie-modal/edit-movie-modal.component';
+import { AddMovieactorModalComponent } from './add-movieactor-modal/add-movieactor-modal.component';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class SpecificMovieComponent implements OnInit {
 
   @ViewChild('reviewModal', { static: false }) reviewModal: AddReviewModalComponent;
   @ViewChild('editMovieModal', { static: false }) editMovieModal: EditMovieModalComponent;
+  @ViewChild('addMovieactorModal', { static: false }) addMovieactorModal: AddMovieactorModalComponent;
 
   constructor(private route: ActivatedRoute,
     private _movieService: MovieService) { }
@@ -55,6 +57,10 @@ export class SpecificMovieComponent implements OnInit {
 
   showEditMovieModal(): void {
     this.editMovieModal.initialize(this.movie.id);
+  }
+
+  showAddActorModal(): void {
+    this.addMovieactorModal.initialize(this.movie.id);
   }
 
   getMovie() {
