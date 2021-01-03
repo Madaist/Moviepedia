@@ -36,7 +36,6 @@ export class AddMovieactorModalComponent {
   getActors() {
     this._actorService.getActors().subscribe((data: ActorDTO[]) => {
       this.actors = data;
-      console.log(this.actors);
     })
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MovieService } from '../shared/services/movie.service';
 import { MovieDTO } from '../shared/models/movie-dto';
@@ -44,8 +44,7 @@ export class SpecificMovieComponent implements OnInit {
             text: 'Movie has been deleted.',
             icon: 'success',
             confirmButtonColor: '#a64dff'
-          }
-          )
+          });
         });
       }
     })
@@ -67,7 +66,6 @@ export class SpecificMovieComponent implements OnInit {
     this.route.params.subscribe(params => {
       this._movieService.getMovie(params['movieId']).subscribe((data: MovieDTO) => {
         this.movie = data;
-        console.log(this.movie);
       })
     });
   }

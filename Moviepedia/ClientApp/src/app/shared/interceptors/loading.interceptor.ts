@@ -11,7 +11,7 @@ export class LoadingInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (!req.url.includes("Movie")) {
+    if (!req.url.includes("Actor")) {
       return next.handle(req);
     }
 
@@ -20,7 +20,7 @@ export class LoadingInterceptor implements HttpInterceptor {
     loaderService.show();
 
     return next.handle(req).pipe(
-      delay(1500),
+      delay(1000),
       finalize(() => loaderService.hide())
     );
   }

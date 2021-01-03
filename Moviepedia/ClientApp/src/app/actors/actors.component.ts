@@ -3,17 +3,18 @@ import { ActorDTO } from '../shared/models/actor-dto';
 import { ActorService } from '../shared/services/actor.service';
 import Swal from 'sweetalert2';
 import { EditActorModalComponent } from './edit-actor-modal/edit-actor-modal.component';
+import { LoaderService } from '../shared/services/loader.service';
 
 @Component({
   selector: 'app-actors',
   templateUrl: './actors.component.html',
-  styleUrls: ['./actors.component.css']
+  styleUrls: ['./actors.component.css', './loader.component.css']
 })
 export class ActorsComponent implements OnInit {
   actors: Array<ActorDTO> = new Array<ActorDTO>();
   @ViewChild('editActorModal', { static: false }) editActorModal: EditActorModalComponent;
 
-  constructor(private _actorService: ActorService) { }
+  constructor(private _actorService: ActorService, public loaderService: LoaderService) { }
 
   ngOnInit() {
     this.getActors();
@@ -53,7 +54,6 @@ export class ActorsComponent implements OnInit {
           }
           )
         });
-        this.getActors();
       }
     })
   }

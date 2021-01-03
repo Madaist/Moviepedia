@@ -36,12 +36,14 @@ namespace Moviepedia.Data
             modelBuilder.Entity<Actor>().HasData(new Actor { Id = "2", FirstName = "Kate", LastName = "Winslet", Age = 45, Picture = "https://i.ibb.co/BVsDhT9/1200px-Kate-Winslet-at-the-2017-Toronto-International-Film-Festival-cropped.jpg" });
             modelBuilder.Entity<Actor>().HasData(new Actor { Id = "3", FirstName = "Brad", LastName = "Pitt", Age = 56, Picture = "https://i.ibb.co/Lr6X6mm/1200px-Brad-Pitt-2019-by-Glenn-Francis.jpg" });
             modelBuilder.Entity<Actor>().HasData(new Actor { Id = "4", FirstName = "Morgan", LastName = "Freeman", Age = 83, Picture = "https://i.ibb.co/vhvVJT7/Morgan-Freeman-Deauville-2018.jpg" });
-            modelBuilder.Entity<Actor>().HasData(new Actor { Id = "5", FirstName = "Johnny", LastName = "Depp", Age = 57, Picture = "https://i.ibb.co/2swVsWn/db0a8c0a8bce7a25d0744ed190f5058098-johnny-depp-rsquare-w1200.jpg" });
+            modelBuilder.Entity<Actor>().HasData(new Actor { Id = "5", FirstName = "Johnny", LastName = "Depp", Age = 57, Picture = "https://i.ibb.co/svgT0xb/330px-Johnny-Depp-2757-cropped.jpg" });
             modelBuilder.Entity<Actor>().HasData(new Actor { Id = "6", FirstName = "Tim", LastName = "Robbins", Age = 62, Picture = "https://i.ibb.co/MfmVJ4q/Tim-Robbins.jpg" });
             modelBuilder.Entity<Actor>().HasData(new Actor { Id = "7", FirstName = "Sam", LastName = "Worthington", Age = 44, Picture = "https://i.ibb.co/Sd9r9Fj/Sam-Worthington-4-2013.jpg" });
             modelBuilder.Entity<Actor>().HasData(new Actor { Id = "8", FirstName = "Zoe", LastName = "Saldana", Age = 42, Picture = "https://i.ibb.co/CzfVnff/Zoe-Saldana.jpg" });
             modelBuilder.Entity<Actor>().HasData(new Actor { Id = "9", FirstName = "Al", LastName = "Pacino", Age = 80, Picture = "https://i.ibb.co/SNGpVN2/330px-Al-Pacino.jpg" });
             modelBuilder.Entity<Actor>().HasData(new Actor { Id = "10", FirstName = "Marlon", LastName = "Brando", Age = 80, Picture = "https://i.ibb.co/S0tQS7z/330px-Marlon-Brando-by-Edward-Cronenweth-1955.jpg" });
+            modelBuilder.Entity<Actor>().HasData(new Actor { Id = "11", FirstName = "Orlando", LastName = "Bloom", Age = 43, Picture = "https://i.ibb.co/6DLDrjZ/330px-Orlando-Bloom-at-Venice-Festival.jpg" });
+            modelBuilder.Entity<Actor>().HasData(new Actor { Id = "12", FirstName = "Frances", LastName = "Fisher", Age = 68, Picture = "https://i.ibb.co/grXmDnw/Mandatory-Credit-Photo-by-Stewart-Cook-REX-Shutterstock-9638076aa-Frances-Fisher-Race-to-Erase-MS-Ga.jpg" });
 
             modelBuilder.Entity<MovieInfo>().HasData(new MovieInfo
             {
@@ -111,6 +113,8 @@ namespace Moviepedia.Data
             modelBuilder.Entity<MovieActors>().HasData(new MovieActors { Id = "9", MovieId = "5", ActorId = "8" });
             modelBuilder.Entity<MovieActors>().HasData(new MovieActors { Id = "10", MovieId = "6", ActorId = "9" });
             modelBuilder.Entity<MovieActors>().HasData(new MovieActors { Id = "11", MovieId = "6", ActorId = "10" });
+            modelBuilder.Entity<MovieActors>().HasData(new MovieActors { Id = "12", MovieId = "3", ActorId = "11" });
+            modelBuilder.Entity<MovieActors>().HasData(new MovieActors { Id = "13", MovieId = "1", ActorId = "12" });
         }
     }
 }
